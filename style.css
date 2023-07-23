@@ -1,0 +1,1801 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+  font-size: 16px;
+}
+
+body{
+   font-family: 'Montserrat', sans-serif;
+   background-color: var(--body-bg);
+   color: var(--text-color);
+   padding-top: var(--nav-height);
+}
+
+:root{
+   --main-color:#c0392b;
+   --body-bg:#181616;
+   --box-bg:#221f1f;
+   --text-color:#ffffff;
+
+   --nav-height:60px;
+   --space-top:30px
+}
+
+a{
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+.main-color{
+    color: var(--main-color);
+}
+
+.container{
+    max-width: 1920px;
+    padding-left: 40px;
+    padding-right: 20px;
+    margin: auto;
+}
+
+.overlay{
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom:0;
+    left:0;
+    background-color: rgb(0,0,0,0.6);
+}
+
+/* for navbar------------------------------------------------------------------------------------------------- */
+.nav-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index:99;
+    background-color: #000000;
+    /* height: 70px; */
+}
+
+.nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--text-color);
+    height: var(--nav-height);
+}
+
+.nav a{
+    color: var(--text-color);
+}
+
+.logo{
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.nav-menu{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-menu li{
+   margin-left: 30px;
+}
+
+.nav-menu a{
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.nav-menu a:hover{
+    color: var(--main-color);
+} 
+
+.nav-menu a.btn:hover,
+a.logo:hover{
+    color:unset;
+} 
+
+.btn{
+    color: #ffffff;
+    padding: 0.25rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+}
+
+/* .nav-menu .home-active{
+    color:var(--main-color);
+} */
+
+/* to get effect's for sign-in btn ------------------------*/
+
+.btn-hover::before{
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 50%;
+    height:100%;
+    background-color: var(--main-color);
+    transition: 0.3s ease-in-out;
+}
+ 
+.btn-hover:hover::before{
+     width: 100%;               
+}
+ 
+.btn i,                /*to get play symbol before watch*/
+ 
+.btn span{
+     z-index: 1;
+}
+ 
+.btn i{
+     margin-right: 1rem;
+}
+ 
+/* for mobile menu toggle --------------------------------*/
+#menu-icon{
+    font-size: 40px;
+    cursor: pointer;
+    z-index:101;
+    display: none;
+    
+}
+ 
+
+/* home section-------------------------------------------------------------------------------------------------------- */
+
+.hero-slide-item{
+    padding-top: 40%;
+    position: absolute;
+    overflow: hidden;
+    min-height: 690px;  /*fixing main height*/
+}
+
+.hero-slide-item img{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+
+.hero-slide-item-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--text-color);
+    display: flex;
+}
+
+.item-content-wraper{
+    padding-left: 5rem;
+    width: 40%;
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.item-content-wraper::before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right,rgba(0,0,0,0.8),rgba(0,0,0,0));
+}
+
+.item-content-title{
+    font-size: 5rem;
+    line-height: 5rem;
+    font-weight: 900;
+}
+
+.movie-infos{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top:calc(var(--space-top) / 2);
+}
+
+.movie-info{
+    display: flex;
+    align-items: center;
+    font-size: -8rem;
+    font-weight: 600;
+}
+
+.movie-info span {
+    margin-left: 5px;
+}
+
+.movie-info i{
+    color: var(--main-color);
+}
+
+.movie-info ~ .movie-info{
+    margin-left: 5px;
+}
+
+.item-content-description{
+    font-size: 1.15rem;
+    margin-top: var(--space-top);
+    line-height:1.5rem;
+}
+
+.item-action{
+    margin-top: var(--space-top);
+}
+
+
+.swiper-pagination-bullet{
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 0.2rem !important;
+    background: var(--text-color) !important;
+    opacity: 1 !important;
+}
+.swiper-pagination-bullet-active{
+   width: 1.5rem !important;
+   background:var(--main-color) !important;
+
+}
+
+
+
+
+/* custom scroll bar ------------------------------------------------*/
+html::-webkit-scrollbar{
+    width:0.3rem;
+    background: var(--body-bg);
+    z-index: -2;
+}
+html::-webkit-scrollbar-thumb{
+    background: var(--main-color);
+    border-radius: 5rem;
+}
+
+
+/* movies section------------------------------------------------------------------------------------------------------------------------------ */
+
+.movies{
+    padding-top: 80px;
+    padding-left: 70px;          /**/
+}
+.popular{
+    padding-top: 80px;
+    padding-left: 70px;
+}
+.anime{
+    padding-top: 80px;
+    padding-left: 70px;
+}
+.series{
+    padding-top: 80px;
+    padding-left: 70px;
+}
+
+.heading{
+    margin-bottom: 30px;
+    padding-left: 20px;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    font-weight: 700;
+    border-left: 5px solid var(--main-color);
+    display: flex;
+    align-items: center;
+}
+
+.movies-list{
+   width:100%;
+   height: 300px;
+   position: relative;
+   margin: 10px 0 20px;
+}
+
+.card-container{
+    position: absolute;
+    width: 95%;
+    padding-left: 10px;                                /*---*/
+    height: 310px;                          /*---*/
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-behavior: smooth;
+}
+
+.card-container::-webkit-scrollbar{
+    display: none;
+}
+
+.card{
+    position: relative;
+    min-width:200px;                          /*---*/
+    width: 150px;                          /*---*/
+    height: 280px;                          /*---*/
+    border-radius: 5px;
+    overflow: hidden;
+    margin-right: 10px;
+    transition: 0.5s;
+}
+
+.card img{
+    width: 100%;
+    height: 99.8%;
+    object-fit:cover;
+}
+
+.card:hover{
+    transform: scale(1.1);
+}
+.card:hover .card-body{
+    opacity: 1;
+}
+
+.card-body{
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: linear-gradient(to bottom,rgba(4,8,15,0),black 90%);  /*---*/
+    padding: 10px;
+    transition: 0.5s;
+}
+
+.name{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: capitalize;
+    margin-top: 88%;                         /*--*/
+}
+
+.des{
+    color: #fff;
+    opacity: 0.8;
+    margin: 5px 0;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.watchlist-btn{
+    position:-absolute;
+    width:100%;
+    text-transform: capitalize;
+    background: none;
+    border: none;
+    font-weight: 500;
+    text-align: center;                /*---*/
+    color: rgba(255,255,255,0.5);
+    margin: 5px 0;
+    cursor: pointer;
+    padding:10px 5px;
+    border-radius: 5px;
+
+}
+
+.watchlist-btn::before{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: -5px;
+    height: 35px;
+    width: 35px;
+    /* background-image: url(); */
+    background-size: cover;
+    transform: scale(0.4);
+}
+
+.watchlist-btn .bx-plus{
+    font-size: 16px;
+    padding-right: 5px;
+    position: relative;
+    top: 2px;
+}
+
+.watchlist-btn:hover{
+    color: #fff;
+    background: rgba(255, 255,255,0.1);
+}
+
+/* for prev-next-btns----------------------------------- */
+.pre-btn,
+.nxt-btn{
+    position: absolute;
+    top: 0;
+    width: 5%;
+    height: 100%;
+    z-index: 2;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    /* visibility: hidden; */
+}
+
+.pre-btn{
+    z-index: 0;
+    left: -65px;
+    /* background: linear-gradient(to right,#0c111b 0%, #0c111b00); */
+    background-color:var(--body-bg);
+}
+.nxt-btn{
+    right: 0px;
+    /* background: linear-gradient(to left,#0c111b 0%, #0c111b00); */
+    background-color:var(--body-bg); 
+    
+}
+
+.pre-btn img,
+.nxt-btn img{
+    width: 65px;
+    height: 70px;
+    opacity: 0;
+    filter: invert(100%)            /*to make black img to white */
+}  
+
+.pre-btn:hover img,
+.nxt-btn:hover img{
+    opacity:1
+}
+
+
+
+/* pricing section --------------------------------------------------------------------------------------------------------------------------*/
+
+.pricing{
+    padding-top: 20px;
+}
+.pricing-list{
+    display: flex;
+    justify-content: space-evenly;
+    /* width: 100%; */
+}
+.pricing-header{
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.pricing-box{
+    width:400px;
+    /* padding: 50px; */
+    /* padding-right:70px ;  */
+    padding:40px 60px 40px 60px; 
+    margin: 15px 0;
+    background-color: var(--box-bg);
+    border-top: 5px solid transparent;
+    transition: transform 0.3s ease-in-out;
+
+    
+}
+.pricing-box:hover{
+    transform: translateY(-20px);
+}
+
+.pricing-box.highlight{
+    border-top: 5px solid var(--main-color);
+}
+
+.pricing-box-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size:1.3rem ;
+}
+
+.pricing-price{
+    font-weight: 700;
+}
+
+.pricing-price span{
+   font-size: 1rem;
+}
+
+.pricing-box-content{
+    text-align: center;
+    margin-top: 60px;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+.pricing-box-content p{
+    padding-bottom: 10px;
+}
+
+.pricing-box-action {
+    text-align: center;
+}
+
+/* footer --------------------------------------------------------------------------------------------------------------------------------*/
+.footer{
+    margin-top:80px ;
+    padding-bottom: 80px;
+    position: relative;
+    background-color: var(--box-bg);
+}
+
+.logo{
+    color: #ffffff;
+}
+
+
+/* .footer a.logo:hover{
+    color: unset;
+} */
+
+.social-list{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.social-item{
+   --size:30px;
+   height: var(--size);
+   width: var(--size);
+   display: grid;
+   place-items: center;
+   border-radius: 50%;
+   background-color: var(--text-color);
+   color: var(--main-color);
+
+   margin-right: 20px;
+
+}
+
+.social-item:hover{
+    background-color: var(--main-color);
+    color: var(--text-color);
+}
+
+
+
+.foot-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.contents{
+    padding-top: 50px;
+    padding-left: 50px;
+    
+} 
+
+.contents p{
+  padding-top: 15px;
+  width:500px;
+  line-height: 25px;
+  
+} 
+
+
+.footer-menu{
+    list-style-type: none;
+}
+
+.footer-menu a{
+    font-size: 14px;
+    color: #ffffff;
+    display: inline-block;
+    transition: transform .2s ease-in-out;
+    padding-bottom: 4px;
+
+}
+
+.footer-menu a:hover{
+    transform: translateX(5px);
+    color: var(--main-color);
+}
+
+.contents-1 p{
+    padding-bottom: 10px;
+    font-size: 15x;
+}
+
+.contents-1{
+    position: relative;
+    top: 40px;
+    left: -50px;
+}
+
+.contents-2{
+    position: relative;
+    top: 55px;
+    left: -50px;
+}
+
+.pic{
+    height: 70px;
+    width: 200px;
+   position: relative;
+   left: -14px;
+}  
+
+.pic-1{
+    height: 48px;
+    width: 180px;
+}
+
+.copyright{
+    padding: 10px;
+    border-top: 2px solid var(--body-bg);
+    background-color: var(--box-bg);
+    text-align: center;
+    font-weight: 100;
+}
+
+.copyright span{
+    font-size: 1rem;
+    padding-right: 8px;
+    padding-left: 8px;
+    font-weight: 200;
+}
+
+
+
+/* responsive------------------------------------------------------------------------ */
+@media (max-width:1260px) {
+    .pricing-box{
+        width:380px;
+        padding:40px 40px 30px 40px; 
+ 
+    } 
+
+    .hero-slide-item img{
+        height: 100vh;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .item-content-wraper{
+        width: 40%;
+    }
+    
+    .item-content-wraper::before{
+        width: 30%;
+    }
+  
+}
+
+@media (max-width:1170px) {
+    .item-content-wraper{
+        padding-left:40px;
+        width: 40%;
+    }
+    .item-content-title {
+        font-size: 4rem;
+    }
+    .item-content-description{
+        font-size: 1rem;
+    }
+
+
+    .movies{
+        padding-top: 80px;
+        padding-left: 50px;          /**/
+    }
+    .popular{
+        padding-top: 80px;
+        padding-left: 50px;
+    }
+    .anime{
+        padding-top: 80px;
+        padding-left: 50px;
+    }
+    .series{
+        padding-top: 80px;
+        padding-left: 50px;
+    }
+    .pre-btn{
+        left: -45px;
+    }
+}
+
+@media (max-width:1190px) {
+    .pricing-box{
+        width:350px;
+        padding:40px 40px 30px 40px; 
+    } 
+}
+
+
+@media (max-width:1110px) {
+    .pricing-box{
+        width:300px;
+        
+    } 
+    
+}
+
+@media (max-width:1100px) {
+    .contents p{
+        width:350px;
+    } 
+}
+
+@media (max-width:1045px) {
+    .contents p{
+        width:300px;
+    } 
+    .pic{
+        height: 60px;
+        width: 180px;
+    }
+    .pic-1{
+        height: 40px;
+        width: 160px;
+    }
+    .contents-2{
+        top: 45px;
+    }
+    .contents-2 p{
+        font-size: 15px;
+    }
+    .contents p{
+        font-size: 14px;
+    }
+    .copyright,
+    .copyright span{
+        font-size: 14px;
+    }
+    .footer-menu a{
+        font-size: 13px;
+    }
+    .contents-1 p{
+        font-size: 15px;
+    }
+    .footer{
+        padding-bottom: 40px;
+    }
+    
+}
+
+@media (max-width:965px) {
+    .contents p{
+        font-size: 14px;
+        width: 250px;
+    }
+    .foot-container{
+        justify-content: space-between;
+    }
+    .copyright,
+    .copyright span{
+        font-size: 14px;
+    }
+    .pricing-box{
+        width:280px;
+    } 
+    .register{
+        font-size: 15px;
+    }
+    .pricing-name{
+        font-size: 18px;
+    }
+    .pricing-price{
+        font-size: 18px;
+    }
+    .contents-1{
+        top:20px;
+    }
+    .contents-2{
+        top:25px;
+    }
+
+    .pre-btn{
+        left: -35px;
+    }
+    .pre-btn img,
+    .nxt-btn img{
+        width: 80px;
+        height: 50px;
+    } 
+
+}
+
+@media (max-width:875px) {
+    .pricing-box{
+        width:250px;
+    } 
+    .register{
+        font-size: 14px;
+    }
+    .pricing-price{
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .pricing-name{
+        font-size: 14px;
+    }
+}
+
+
+@media (max-width:853px) {
+    /* .logo{
+        font-size: 1.7rem;
+    } */
+    .btn-hover{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width:837px) {
+    .logo{
+        font-size: 1.5rem;
+    }
+   
+}
+
+@media (max-width:830px) {
+    .contents p{
+        font-size: 13px;
+        width: 240px;
+    }
+    .contents-1{
+        left: -10px;
+    }
+    
+    .contents-2{
+        left: -5px;
+    }
+} 
+
+@media (max-width:811px) {
+    .item-content-title {
+        font-size: 3rem;
+        font-weight: 800;
+        line-height: 55px;
+    }
+    .item-content-description{
+        font-size:15px;
+    }
+    .logo{
+        font-size: 1.5rem;
+    }
+    .btn-hover{
+        font-size: 0.7rem;
+    }
+    .nav-menu a{
+        font-size: 14px;
+    }
+} 
+
+
+@media (max-width:785px) {
+    .pricing-box{
+        width:220px;
+        height: 350px;
+        padding:40px 30px 5px 30px; 
+    }   
+    .register{
+        font-size: 11px;
+    }
+    .pricing-price{
+        font-size: 13px;
+        font-weight: 600;
+    }
+    .pricing-name{
+        font-size: 12px;
+    }
+  
+} 
+
+
+@media (max-width:764px) {
+    .logo{
+        font-size: 1.8rem;
+    }
+    .copyright,
+    .copyright span{
+        font-size: 12px;
+    }
+    .pricing-name{
+        font-weight: 300;
+        font-size: 13px;
+    }
+    .pricing-box-content p{
+        font-size: 15px;
+    }
+    .contents-1{
+        left: 4px;  
+       
+    }
+    .contents-1 p{
+        font-size: 14px;  
+    }
+    .contents-2 p{
+        font-size: 14px;  
+    }
+    .contents-2{
+       /* left: 2px; */
+    }
+    .pic{
+        height: 60px;
+        width: 150px;
+    }
+    .pic-1{
+        height: 40px;
+        width: 130px;
+    }
+
+    /* for menu function */
+    #menu-icon{
+        display:initial;
+    }
+    .nav-menu a::after{
+        display:none;  
+    }
+    .nav-menu li{
+        margin-top: 1.5rem;
+        /* margin-bottom: 0.8rem; */
+    }
+
+    .nav-menu{
+        position: absolute;
+        top:-570px;
+        left:0;
+        right:0;
+        display: flex;
+        flex-direction: column;
+        background: rgb(19, 18, 18);
+        row-gap: 1.4rem;
+        padding: 20px ;
+        box-shadow: 4px 4px 0 4px rgb(14 55 54 / 15%);
+        transition: 0.2s all linear;
+        text-align: center;
+        z-index: -99999;
+      
+    }
+
+    .nav-menu a{ 
+        width: 100%;
+    }
+
+    .nav-menu.active{           /* to get menu funcationality downwards (no space btwn .navmenu and .active)*/
+        top:100%;
+    }
+
+} 
+
+
+@media (max-width:745px) {
+    .pic{
+        height: 50px;
+        width: 120px;
+        left: -5px;
+    }
+    .pic-1{
+        height: 35px;
+        width: 109px;
+        padding-left: 5px;
+    }
+    .contents-2{
+        top:18px;
+    }
+    .contents-1{
+        top: 18px;
+    }
+
+
+    .pre-btn{
+        left: -31px;
+    }
+    .movies{
+        padding-left: 35px;
+    }
+    .popular{
+        padding-top: 50px;
+        padding-left: 35px;
+    }
+    .anime{
+        padding-top: 50px;
+        padding-left: 35px;
+    }
+    .series{
+        padding-top: 50px;
+        padding-left: 35px;
+    }
+    
+    .pre-btn img,
+    .nxt-btn img{
+        width: 80px;
+        height: 50px;
+    } 
+
+
+   
+} 
+
+@media (max-width:690px) {
+    .pricing-box{
+        width:200px;
+        height: 350px;
+        padding:40px 30px 5px 30px; 
+    } 
+   .foot-container{
+    /* display: block; */
+   }
+   .contents p{
+    /* width: 100%; */
+    width: 200px;
+   }
+    .contents-2{
+        top:38px;
+    }
+    .contents-1{
+        top: 38px;
+        left: -5px;
+    }
+
+    .pre-btn{
+        left: -30px;
+    }
+    .card-container{
+        width: 93%;
+    }
+    /* .pre-btn img,
+    .nxt-btn img{
+        width: 120px;
+        height: 35px;
+    }  */
+    .nxt-btn{
+        right: 10px;
+    }
+} 
+
+@media (max-width:650px) {
+    .pricing-box{
+        width:200px;
+        height: 350px;
+        padding:40px 30px 5px 30px; 
+    } 
+   .contents p{
+    width: 200px;
+   }
+    .item-content-wraper{
+        padding-left: 18px;
+    }
+    .contents{
+       padding-left: 20px;
+    }
+
+    .heading{
+        font-size: 25px;
+    }
+} 
+
+
+@media (max-width:635px) {
+    .pricing-box{
+        width:180px;
+    } 
+    .pricing-box{
+        padding-left: 12px; 
+        padding-right: 12px; 
+    }
+    .pre-btn img,
+    .nxt-btn img{
+        width: 80px;
+        height: 50px;
+    } 
+
+} 
+
+@media (max-width:620px) {
+    .movie-infos{
+      font-size: 14px;
+    }
+    .pre-btn img,
+    .nxt-btn img{
+        width: 100px;
+        height: 50px;
+    } 
+
+} 
+
+@media (max-width:609px) {
+    .contents-1 a{
+       font-size: 12px;
+    }
+} 
+
+@media (max-width:590px) {
+    .contents p{
+        width: 180px;
+    }
+    .contents-1{
+        left: -20px;
+        padding-left:8px;
+        top: 25px;
+    }
+    .contents-2{
+        top: 25px;
+    }
+
+} 
+
+@media (max-width:583px) {
+   .foot-container{
+    display:block;
+   }
+
+   .contents p{
+    width:100%;
+    font-size: 15px;
+   }
+   .contents-1{
+    padding-left: 45px;
+   }
+   .contents-1 a{
+    font-size: 14px;
+   }
+   .contents-1 p{
+    font-size: 16px;
+   }
+   
+   /* to make position shifting without leaving space */
+   .bro-1{
+    position: absolute;
+    top:0px;
+    left: 0px;
+   }
+   .bro-1 p,
+   .bro-1 a{
+    position: relative;
+    top: 225px;
+    left: 200px;
+   }
+   .bro-2{
+    position: absolute;
+    top:0px;
+    left: 400px;
+   }
+   .bro-2 p,
+   .bro-2 a{
+    position: relative;
+    top: 225px;
+   }
+   
+
+   .contents-2{
+    padding-top: 30px;
+    position: relative;
+    top: 40px;
+    text-align: center;
+   }
+   .contents-2 .footer-menu{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+   }
+   .pic{
+    height: 80px;
+    width: 200px;
+   }
+   .pic-1{
+    height: 53px;
+    width: 180px;
+   }
+
+}
+
+@media (max-width:560px) {
+     .item-content-title{
+        font-size: 40px;
+        line-height: 43px;
+    }
+    .movie-infos{
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width:575px) {
+   .pricing-box{
+    width: 165px;
+   }
+   .pre-btn img,
+   .nxt-btn img{
+       width: 100px;
+       height: 40px;
+   } 
+
+   .pre-btn{
+    left: -26px;
+   }
+}
+
+@media (max-width:533px) {
+    .pricing-list{
+       display:grid;
+       align-items: center;
+    }
+    .pricing-box{
+        width: 400px;
+        height: 400px;
+        padding-bottom: 50px;
+    }
+    .pricing-box-header{
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .pricing-name{
+        font-size: 20px;
+    }
+    .pricing-price{
+        font-size: 30px;
+    }
+    .pricing-box-content p{
+        font-size: 18px;
+    }
+    .register{
+        font-size: 15px;
+    }
+
+    .bro-1{
+        position: absolute;
+        top:0px;
+        left: -40px;
+    }
+    .bro-2{
+        position: absolute;
+        top:0px;
+        left: 350px;
+    }
+    .bro-3{
+        left: -10px;
+    }
+
+    .hero-slide-item img{
+       justify-content: left;
+    }
+
+    .pre-btn img,
+    .nxt-btn img{
+        width: 120px;
+        height: 35px;
+    } 
+ 
+    .pre-btn{
+     left: -26px;
+    }
+    .heading{
+        font-size: 20px;
+    }
+    .card-container{
+        width: 92%;
+    }
+    .pre-btn img,
+    .nxt-btn img{
+        width: 120px;
+        height: 35px;
+    } 
+    .nxt-btn{
+        right: 10px;
+    }
+    .pricing-header{
+        font-size: 25px;
+    }
+}
+
+@media (max-width:500px) {
+    .movie-infos{
+        font-size: 12px;
+    }
+    .item-content-description{
+        font-size: 14px;
+        position: relative;
+        top:-10px;
+    }
+    .watch{
+        position: relative;
+        top: -15px;
+    }
+    .container{
+        padding-left: 20px;
+    }
+
+
+    .pre-btn{
+        left: -22px;
+    }
+}
+ 
+@media (max-width:483px) {
+    .bro-2{
+        position: absolute;
+        top:0px;
+        left: 300px;
+    }
+    .bro-1{
+        position: absolute;
+        top:0px;
+        left: -60px;
+    }
+}
+ 
+@media (max-width:475px) {
+   .movie-info{
+    padding: 6px 3px;
+   }
+   .movie-infos{
+    font-size: 14px;
+   }
+   .item-content-title{
+    font-size: 31px;
+    font-weight: 900;
+   }
+   .info-1{
+    position: relative;
+    left: -7px;
+   }
+}
+ 
+@media (max-width:465px) {
+    .pricing-box{
+        width: 350px;
+        height: 400px;
+    }
+}
+
+
+@media (max-width:453px) {
+    .movie-info{
+     padding-right:0px;
+    }
+ }
+
+@media (max-width:436px) {
+    .bxs-right-arrow{
+        font-size: 15px;
+    }
+}
+
+@media (max-width:430px) {
+    .pricing-box{
+        width: 350px;
+        height: 400px;
+    }
+    .bro-1{
+        position: absolute;
+        top:0px;
+        left: -85px;
+    }
+    .bro-2{
+        position: absolute;
+        top:0px;
+        left: 250px;
+    }
+    .pic{
+        width: 160px;
+        height: 63px;
+    }
+    .pic-1{
+        width: 135px;
+        height: 43px;
+    }
+}
+
+@media (max-width:418px) {
+    .movie-infos{
+        font-size: 12px;
+    }
+    .pricing-box{
+        width: 290px;
+        height: 400px;
+    }
+    .pricing-price{
+        font-size: 26px;
+    }
+    .item-content-description{
+        position: relative;
+        top:-20px;
+    }
+    .watch{
+        position: relative;
+        top: -25px;
+        font-size: 10px;
+    }
+    .pre-btn img,
+    .nxt-btn img{
+        width: 150px;
+        height: 24px;
+    } 
+    .pre-btn{
+        left: -18px;
+    }
+    .card-container{
+        width: 91%;
+    }
+
+}
+
+  @media (max-width:400px) {
+    .bro-1{
+        position: absolute;
+        top:24px;
+        left: -85px;
+    }
+    .bro-2{
+        position: absolute;
+        top:24px;
+        left: 250px;
+    }
+
+}  
+
+@media (max-width:385px) {
+    .pic-1{
+        width: 140px;
+        height: 40px;
+    }
+    .item-content-title {
+        font-size: 24px;
+        line-height: 29px;
+    }
+    .movie-info{
+        padding-left:0px;
+    }
+    .item-content-description{
+        font-size: 12px;
+    }
+    .watch{
+        font-size:9px;
+    }
+    .bxs-right-arrow{
+        font-size: 10px;
+    }
+    .heading{
+        font-size: 18px;
+        padding-left: 8px;
+    }
+
+}
+
+@media (max-width:380px) {
+    .bro-1{
+        position: absolute;
+        top:24px;
+        left: -100px;
+    }
+    .bro-2{
+        position: absolute;
+        top:24px;
+        left: 220px;
+    }
+    .copyright,
+    .copyright span{
+        font-size: 10px;
+        font-weight: 500;
+    }
+    .container{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+@media (max-width:370px) {
+    .pre-btn img,
+    .nxt-btn img{
+        width: 150px;
+        height: 25px;
+    } 
+    .card-container{
+        width: 90%;
+    }
+}
+
+@media (max-width:350px) {
+    .bro-1{
+        position: absolute;
+        top:24px;
+        left: -120px;
+    }
+    .bro-2{
+        position: absolute;
+        top:24px;
+        left: 190px;
+    }
+    .contents-1 p{
+        font-size: 13px;
+    }
+    .contents-1 a{
+        font-size: 12px;
+    }
+    .contents p{
+        font-size: 13px;
+    }
+    .contents-2 p{
+        font-size: 13px;
+    }
+    .pic-1{
+        width: 120px;
+        height: 35px;
+    }
+    .pic{
+        width: 130px;
+        height: 54px;
+    }
+    .item-content-description{
+        line-height: 20px;
+    }
+    .pre-btn{
+        left: -17px;
+    }
+    .card-container{
+        width: 90%;
+    }
+}
+
+@media (max-width:331px) {
+   .copyright,
+   .copyright span{
+       font-size: 11px;
+       font-weight: 510;
+       line-height: 16px;
+   }
+}
+
+@media (max-width:325px) {
+    .movie-info{
+        font-size: 10px;
+    }
+}
+ 
+@media (max-width:310px) {
+   .item-content-wraper{
+    padding-left: 10px;
+   }
+   .pricing-box{
+    width: 240px;
+   }
+   .pricing-price{
+    font-size: 19px;
+   }
+   .pricing-name{
+    font-size: 15px;
+   }
+   .pricing-box-content p{
+    font-size: 16px;
+   }
+   .bro-1{
+    position: absolute;
+    top:24px;
+    left: -130px;
+   }
+   .bro-2{
+    position: absolute;
+    top:24px;
+    left: 165px;
+   } 
+   .pre-btn img,
+    .nxt-btn img{
+        width: 170px;
+        height: 20px;
+    } 
+    .nxt-btn{
+        right:14px;
+    }
+    .card-container{
+        width: 86%;
+    }
+ 
+}
+
+@media (max-width:290px) {
+    .bro-1{
+     position: absolute;
+     top:51px;
+     left: -130px;
+    }
+    .bro-2{
+     position: absolute;
+     top:51px;
+     left: 165px;
+    } 
+    .item-content-description{
+        line-height: 16px;
+        position: relative;
+        top: -40px;
+    }
+    .watch{
+        position: relative;
+        top: -50px;
+        font-size: 8px;
+        padding-left: 14px;
+    }
+    .watch span{
+        position: relative;
+        left: -10px;
+    }
+    .bxs-right-arrow{
+        font-size: 10px;
+    }
+    .item-content-title{
+        font-size: 19px;
+        line-height: 22px;
+    }
+    .movie-infos{
+        position: relative;
+        top: -9px;
+    }
+    .info-1{
+        position: relative;
+        top: -6px;
+    }
+    .info-2{
+        position: relative;
+        top: -6px;
+    }
+}
+ 
+@media (max-width:280px) {
+    .movie-info{
+        font-size: 10px;
+    }
+    .contents{
+        padding-top: 25px;
+        padding-left: 18px;
+    } 
+    .bro-1{
+        position: absolute;
+        top:25px;
+        left: -147px;
+    }
+    .bro-2{
+        position: absolute;
+        top:25px;
+        left: 138px;
+    } 
+    .bro{
+        position: relative;
+        left: -30px;
+    }
+    .bro-3 .footer-menu{
+        display: block;
+    }
+    .bro-3 p{
+        position:absolute;
+        top:1px;
+        left: 80px;
+    }
+    .bro-3 .footer-menu{
+        position:relative;
+        top:-15px;
+    }
+    .pic{
+        width: 200px;
+        height: 70px;
+    }
+    .pic-1{
+        width: 180px;
+        height: 45px;
+        position: relative;
+        left: -7px;
+    }
+    .footer-menu a{
+        font-size: 10.5px;
+    }
+    .pre-btn img,
+    .nxt-btn img{
+        width: 190px;
+        height: 24px;
+    }
+}  
+
+@media (max-width:265px) {
+    .pricing-box{
+        width: 200px;
+        height: 315px;
+    }
+    .footer{
+        margin-top:20px ;
+    }
+    .pricing-price{
+        font-weight: 600;
+        font-size: 14px;
+    }
+    .pricing-name{
+        font-size: 13px;
+    }
+    .pricing-box{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .pricing-box-content p{
+        font-size: 14px;
+    }
+    .register{
+        font-size: 13px;
+    }
+    .movie-infos{
+        display: block;
+    }
+    .movie-info .bxs-time{
+        position: relative;
+        left: -5px;
+    }
+    .info-1{
+        position: relative;
+        top: -5px;
+    }
+    .info-2{
+        position: relative;
+        left: 28px;
+        top: -29px;
+    }
+    .item-content-description {
+        position: relative;
+        top:-55px;
+    }
+    .watch{
+        position: relative;
+        top: -60px;
+    }
+    .heading{
+        font-size: 15px;
+    }
+    .pricing-header{
+        font-size: 20px;
+    }
+
+}
+
+@media (max-width:245px) {
+    .pic{
+        width: 170px;
+        height: 58px;
+        position: relative;
+        left: 9px;
+    }
+    .pic-1{
+        width: 160px;
+        height: 40px;
+        position: relative;
+        left: 9px;
+    }
+    .pre-btn{
+        left: -16px;
+    }
+    .bro-1{
+        position: absolute;
+        top:25px;
+        left: -155px;
+    }
+    .bro-2{
+        position: absolute;
+        top:25px;
+        left: 122px;
+    } 
+   
+
+}
